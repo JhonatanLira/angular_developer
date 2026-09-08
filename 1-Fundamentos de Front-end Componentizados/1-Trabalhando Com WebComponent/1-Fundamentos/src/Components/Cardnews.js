@@ -1,28 +1,35 @@
-class Cardnews extends HtmlElement {
+class Cardnews extends HTMLElement {
+
     constructor() {
         super();
 
-        const shadow = this.attachShadow({ mode: "open" });
+        const shadow = this.attachShadow({ mode: "open"});
 
         shadow.appendChild(this.build());
-        shadow.appendChild(this.styles());
+        //shadow.appendChild(this.styles());
     }
 
     build() {
+
         const componentRoot = document.createElement("div");
-        componentRoot.setAttribute("class","card");   
+        componentRoot.setAttribute("class", "card");
 
         const cardLeft = document.createElement("div");
-        //cardLeft.setAttribute("class","card_left");
+        cardLeft.setAttribute("class", "card_left");
+
+        const autor = document.createElement("span");
+        autor.textContent = "By " + (this.getAttribute("autor")|| "Anonimus");
+
+        const linkTitle = document.createElement("a");
+        linkTitle.textContent = this.getAttribute("title");
+
+        const newsContent = document.createElement("p");
+        newsContent.textContent = this.getAttribute("content");
 
         const cardRight = document.createElement("div");
-        //cardRight.setAttribute("class","card_right");
+        cardRight.setAttribute("class", "card_right");
 
         componentRoot.appendChild(cardLeft);
-
-        const autor = document.createAttribute("span");
-        const linkTitle = document.createAttribute("a");
-        const newsContent = document.createAttribute("p");
 
         cardLeft.appendChild(autor);
         cardLeft.appendChild(linkTitle);
@@ -30,7 +37,7 @@ class Cardnews extends HtmlElement {
 
         componentRoot.appendChild(cardRight);
 
-        const newsImage = document.createAttribute("img");
+        const newsImage = document.createElement("img");
 
         cardRight.appendChild(newsImage);
 
@@ -38,9 +45,7 @@ class Cardnews extends HtmlElement {
     }
 
 
-    styles() {
-
-    }
+    styles() {}
 }
 
 customElements.define("card-news", Cardnews);

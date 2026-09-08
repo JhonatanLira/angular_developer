@@ -9,12 +9,11 @@
     width: 80%;
     border: 1px solid gray;
     -webkit-box-shadow: 14px 18px 18px 7px rgba(0,0,0,0.52); 
-box-shadow: 14px 18px 18px 7px rgba(0,0,0,0.52);
+box-shadow: 1px 1px 18px 7px rgba(0,0,0,0.52);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-
 
 .card_left{
     display: flex;
